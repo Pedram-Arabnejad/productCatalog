@@ -11,14 +11,14 @@ export interface FindProductsOptions {
   limit?: number;
 }
 
-export interface IProductRepository {
-  findById(id: string): Promise<Product | null>;
-  findBySlug(slug: string): Promise<Product | null>;
-  findAll(options?: FindProductsOptions): Promise<Product[]>;
-  count(options?: FindProductsOptions): Promise<number>;
-  save(product: Product): Promise<Product>;
-  update(product: Product): Promise<Product>;
-  delete(id: string): Promise<void>;
-  existsBySlug(slug: string): Promise<boolean>;
-  getPopularProducts(limit: number): Promise<Product[]>;
+export abstract class IProductRepository {
+  abstract findById(id: string): Promise<Product | null>;
+  abstract findBySlug(slug: string): Promise<Product | null>;
+  abstract findAll(options?: FindProductsOptions): Promise<Product[]>;
+  abstract count(options?: FindProductsOptions): Promise<number>;
+  abstract save(product: Product): Promise<Product>;
+  abstract update(product: Product): Promise<Product>;
+  abstract delete(id: string): Promise<void>;
+  abstract existsBySlug(slug: string): Promise<boolean>;
+  abstract getPopularProducts(limit: number): Promise<Product[]>;
 }
