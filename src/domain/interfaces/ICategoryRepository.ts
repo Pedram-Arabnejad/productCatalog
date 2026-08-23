@@ -1,11 +1,11 @@
 import { Category } from '../entities/Category';
 
-export interface ICategoryRepository {
-  findById(id: string): Promise<Category | null>;
-  findBySlug(slug: string): Promise<Category | null>;
-  findAll(): Promise<Category[]>;
-  save(category: Category): Promise<Category>;
-  update(category: Category): Promise<Category>;
-  delete(id: string): Promise<void>;
-  existsBySlug(slug: string): Promise<boolean>;
+export abstract class ICategoryRepository {
+  abstract findById(id: string): Promise<Category | null>;
+  abstract findBySlug(slug: string): Promise<Category | null>;
+  abstract findAll(): Promise<Category[]>;
+  abstract save(category: Category): Promise<Category>;
+  abstract update(category: Category): Promise<Category>;
+  abstract delete(id: string): Promise<void>;
+  abstract existsBySlug(slug: string): Promise<boolean>;
 }
